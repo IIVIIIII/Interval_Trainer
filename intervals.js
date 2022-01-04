@@ -4,6 +4,8 @@ var intervals = ['m2','M2','m3','M3','P4','d5','P5','m6','M6','m7','M7','P8','m9
 
 var chosen = [];
 
+Max = 0
+
 
 function set(a,b,c,d,e,f,g,h,i,j,k,l,m,n) {
 		
@@ -20,25 +22,28 @@ function set(a,b,c,d,e,f,g,h,i,j,k,l,m,n) {
 			
 		}
 	}
+	
+	Max = chosen.length
+	
+	if (Max == 0) {
+	
+		outlet(0,'!')
+		outlet(1,0)
+	
+	}
 }
 
 
 function bang() {
 	
-	Max = chosen.length
-	
 	if (Max != 0) {
 	
 		ran = Math.floor(Math.random() * Max);
 	
-		inteval = chosen[ran]
+		interval = chosen[ran]
 	
-		outlet(0,inteval[0])
-		outlet(1,inteval[1])
-	
-	} else {
-	
-		outlet(0,'!')
+		outlet(0,interval[0])
+		outlet(1,interval[1])
 	
 	}
 }
